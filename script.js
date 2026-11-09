@@ -46,4 +46,54 @@ function normalizarNota(valor) {
     valor = valor.replace(",", ".");
   }
   let numero = parseFloat(valor);
-  if (isNaN(numero))
+  if (isNaN(numero)) {
+    return null;
+  }
+  if (numero >= 0 && numero <= 10) {
+    return numero;
+  } else if (numero > 10 && numero <= 100) {
+    return numero / 10;
+  } else {
+    return null;
+  }
+}
+
+// Validação estrita para o que o aluno digita no editor (0 a 10 ou vazio)
+function validarNotaEditada(valorTexto) {
+  if (valorTexto === null || valorTexto === undefined || valorTexto.trim() === "") {
+    return { valido: true, valor: null };
+  }
+  const textoLimpo = valorTexto.trim().replace(",", ".");
+  const num = Number(textoLimpo);
+  if (!isNaN(num) && num >= 0 && num <= 10) {
+    return { valido: true, valor: num };
+  }
+  return { valido: false, valor: null };
+}
+
+// Validação estrita para faltas (inteiro >= 0)
+function validarFaltaEditada(valorTexto) {
+  if (valorTexto === null || valorTexto === undefined || valorTexto.trim() === "") {
+    return { valido: false, valor: null };
+  }
+  const num = Number(valorTexto.trim());
+  if (Number.isInteger(num) && num >= 0) {
+    return { valido: true, valor: num };
+  }
+  return { valido: false, valor: null };
+}
+
+// Fazer Login na API
+async function fazerLogin() {
+  const inputPin = document.getElementById("input-pin");
+  const msgLogin = document.getElementById("msg-login");
+  const pinDigitado = inputPin.value.trim();
+
+  if (!pinDigitado) {
+    msgLogin.textContent = "Por favor, digite o PIN.";
+    msgLogin.className = "mensagem-status msg-erro";
+    return;
+  }
+
+  msgLogin.textContent = "Conectando...";
+  msg
