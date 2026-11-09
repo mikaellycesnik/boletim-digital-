@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>boletim digital</title>
-</head>
-<body>
-    
-</body><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -25,56 +15,81 @@
       <p class="subtitulo">8º Ano — Estudante Exemplo</p>
     </header>
 
-    <!-- Área de Cards de Resumo -->
-    <section class="cards-resumo">
-      <div class="card">
-        <h3>Média Geral</h3>
-        <p id="card-media" class="valor-card">—</p>
+    <!-- Tela de Acesso por PIN -->
+    <section id="secao-login" class="card-login">
+      <h2>Acesso ao Boletim</h2>
+      <p class="info-aluno-login">Turma: <strong>8B</strong> | Chamada: <strong>25</strong></p>
+      <div class="form-login">
+        <label for="input-pin">Digite seu PIN:</label>
+        <input type="password" id="input-pin" placeholder="Ex: 1234" maxlength="10">
+        <button id="btn-entrar" onclick="fazerLogin()">Entrar</button>
       </div>
-
-      <div class="card">
-        <h3>Total de Faltas</h3>
-        <p id="card-faltas" class="valor-card">—</p>
-      </div>
-
-      <div class="card">
-        <h3>Bom Desempenho</h3>
-        <p id="card-bom-desempenho" class="valor-card">—</p>
-      </div>
-
-      <div class="card">
-        <h3>Precisa de Atenção</h3>
-        <p id="card-atencao" class="valor-card">—</p>
-      </div>
-
-      <div class="card">
-        <h3>Frequência</h3>
-        <p id="card-frequencia" class="valor-card">92%</p>
-        <span class="legenda-frequencia">Frequência adequada</span>
-      </div>
+      <p id="msg-login" class="mensagem-status"></p>
     </section>
 
-    <!-- Tabela de Disciplinas -->
-    <main class="secao-tabela">
-      <div class="tabela-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Disciplina</th>
-              <th>1º Tri</th>
-              <th>2º Tri</th>
-              <th>3º Tri</th>
-              <th>Média</th>
-              <th>Faltas</th>
-              <th>Situação</th>
-            </tr>
-          </thead>
-          <tbody id="corpo-tabela">
-            <!-- As 15 linhas de disciplinas serão inseridas aqui automaticamente pelo JavaScript -->
-          </tbody>
-        </table>
+    <!-- Conteúdo do Boletim (inicialmente oculto) -->
+    <div id="conteudo-boletim" style="display: none;">
+      
+      <!-- Painel de Ações do Aluno -->
+      <div class="painel-acoes">
+        <button id="btn-alterar" onclick="abrirEdicao()">Alterar dados</button>
+        <button id="btn-salvar" onclick="salvarDados()" style="display: none;">Salvar alterações</button>
+        <button id="btn-cancelar" onclick="cancelarEdicao()" style="display: none;">Cancelar</button>
+        <span id="msg-salvamento" class="mensagem-status"></span>
       </div>
-    </main>
+
+      <!-- Área de Cards de Resumo -->
+      <section class="cards-resumo">
+        <div class="card">
+          <h3>Média Geral</h3>
+          <p id="card-media" class="valor-card">—</p>
+        </div>
+
+        <div class="card">
+          <h3>Total de Faltas</h3>
+          <p id="card-faltas" class="valor-card">—</p>
+        </div>
+
+        <div class="card">
+          <h3>Bom Desempenho</h3>
+          <p id="card-bom-desempenho" class="valor-card">—</p>
+        </div>
+
+        <div class="card">
+          <h3>Precisa de Atenção</h3>
+          <p id="card-atencao" class="valor-card">—</p>
+        </div>
+
+        <div class="card">
+          <h3>Frequência</h3>
+          <p id="card-frequencia" class="valor-card">92%</p>
+          <span class="legenda-frequencia">Frequência adequada</span>
+        </div>
+      </section>
+
+      <!-- Tabela de Disciplinas -->
+      <main class="secao-tabela">
+        <div class="tabela-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>1º Tri</th>
+                <th>2º Tri</th>
+                <th>3º Tri</th>
+                <th>Média</th>
+                <th>Faltas</th>
+                <th>Situação</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+              <!-- As linhas de disciplinas serão inseridas aqui automaticamente pelo JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+    </div>
   </div>
 
   <script src="script.js"></script>
