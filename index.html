@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boletim Digital - 8º Ano</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Chart.js para visualização de gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -64,6 +66,30 @@
           <h3>Frequência</h3>
           <p id="card-frequencia" class="valor-card">92%</p>
           <span class="legenda-frequencia">Frequência adequada</span>
+        </div>
+      </section>
+
+      <!-- Área de Gráficos de Desempenho -->
+      <section class="area-graficos">
+        <div class="card-grafico card-grafico-media">
+          <h3>Média por Disciplina</h3>
+          <div class="container-canvas">
+            <canvas id="graficoMediaDisciplina"></canvas>
+          </div>
+        </div>
+
+        <div class="card-grafico">
+          <h3>Evolução da Média Geral</h3>
+          <div class="container-canvas">
+            <canvas id="graficoEvolucaoMedia"></canvas>
+          </div>
+        </div>
+
+        <div class="card-grafico">
+          <h3>Faltas por Trimestre</h3>
+          <div class="container-canvas">
+            <canvas id="graficoFaltasTrimestre"></canvas>
+          </div>
         </div>
       </section>
 
