@@ -122,11 +122,11 @@ button:hover {
 }
 
 .msg-erro {
-  color: #a80572;
+  color: #c0392b;
 }
 
 .msg-sucesso {
-  color: #e773d8;
+  color: #1b7a3a;
 }
 
 .msg-info {
@@ -134,7 +134,7 @@ button:hover {
 }
 
 .campo-invalido {
-  border: 2px solid #c403aa !important;
+  border: 2px solid #c0392b !important;
   background-color: #fde8e8 !important;
 }
 
@@ -265,12 +265,12 @@ tr:nth-child(even) {
 
 /* Estilos para as situações */
 .situacao-bom {
-  color: #f86df1;
+  color: #1b7a3a;
   font-weight: bold;
 }
 
 .situacao-atencao {
-  color: #b6007f;
+  color: #c0392b;
   font-weight: bold;
 }
 
